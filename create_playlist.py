@@ -6,12 +6,20 @@ Step 4: Search for the song
 Step 5: Add song into new Spotify playlist
 """
 import json
+import os
+
+
+import google_auth_oauthlib.flow
+import googleapiclient.discovery
+import googleapiclient.errors
 import requests
-from secrets import spotify_user_id
+import youtube_dl
+from secrets import spotify_token, spotify_user_id
 
 class CreatePlaylist:
     def __init__(self):
-        pass
+        self.youtube_client = self.get_youtube_client()
+        self.all_song_info = {}
     # Step 1: Log into Youtube
     def get_youtube_client(self):
         pass
